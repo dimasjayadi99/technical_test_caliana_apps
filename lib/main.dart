@@ -120,7 +120,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
           16.horizontalSpace,
           GestureDetector(
             onTap: () {
-              Get.to(NotificationPage());
+              Get.to(const NotificationPage());
             },
             child: Container(
               margin: const EdgeInsets.only(right: 16),

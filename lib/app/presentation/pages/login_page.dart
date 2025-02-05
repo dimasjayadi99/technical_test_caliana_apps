@@ -14,6 +14,8 @@ class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  final GlobalKey<FormState> formKey = GlobalKey();
+
   final List<String> imageSlider = [
     PathConstant.illustration1Path,
     PathConstant.illustration2Path,
@@ -55,47 +57,52 @@ class LoginPage extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(24.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Email',
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                        8.verticalSpace,
-                        CustomTextField().generalForm(
-                          'example@caliana.id',
-                          Icons.email,
-                          TextInputType.emailAddress,
-                          true,
-                          emailController,
-                        ),
-                        32.verticalSpace,
-                        const Text('Kata Sandi',
-                            style: TextStyle(fontWeight: FontWeight.w500)),
-                        8.verticalSpace,
-                        CustomTextField().passwordForm(
-                          'Masukan Kata Sandi Anda',
-                          Icons.lock,
-                          Icons.visibility_off,
-                          passwordController,
-                        ),
-                        32.verticalSpace,
-                        const Text(
-                          'Lupa kata sandi?',
-                          style: TextStyle(
-                              color: StyleConstant.primaryColor,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.blue,
-                              decorationThickness: 2.0,
-                              fontSize: 16),
-                        ),
-                        const Spacer(),
-                        CustomButton().fillButton(context, 'Masuk', () {
-                          Get.offNamedUntil(
-                              PathConstant.main, (route) => false);
-                        }),
-                      ],
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Email',
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                          8.verticalSpace,
+                          CustomTextField().generalForm(
+                              'example@caliana.id',
+                              Icons.email,
+                              TextInputType.emailAddress,
+                              true,
+                              emailController,
+                              true),
+                          32.verticalSpace,
+                          const Text('Kata Sandi',
+                              style: TextStyle(fontWeight: FontWeight.w500)),
+                          8.verticalSpace,
+                          CustomTextField().passwordForm(
+                            'Masukan Kata Sandi Anda',
+                            Icons.lock,
+                            Icons.visibility_off,
+                            passwordController,
+                          ),
+                          32.verticalSpace,
+                          const Text(
+                            'Lupa kata sandi?',
+                            style: TextStyle(
+                                color: StyleConstant.primaryColor,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.blue,
+                                decorationThickness: 2.0,
+                                fontSize: 16),
+                          ),
+                          const Spacer(),
+                          CustomButton().fillButton(context, 'Masuk', () {
+                            if (formKey.currentState!.validate()) {
+                              Get.offNamedUntil(
+                                  PathConstant.main, (route) => false);
+                            }
+                          }),
+                        ],
+                      ),
                     ),
                   ),
                 ),

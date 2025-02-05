@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField {
-  TextFormField generalForm(String label, IconData prefixIcon,
-      TextInputType inputType, bool enable, TextEditingController controller) {
+  TextFormField generalForm(
+      String label,
+      IconData prefixIcon,
+      TextInputType inputType,
+      bool enable,
+      TextEditingController controller,
+      bool isRequired) {
     return TextFormField(
       keyboardType: inputType,
       controller: controller,
@@ -14,7 +19,7 @@ class CustomTextField {
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(12)))),
       validator: (value) {
-        if (value == '') {
+        if (value == '' && isRequired) {
           return '$label masih kosong!';
         }
         return null;
