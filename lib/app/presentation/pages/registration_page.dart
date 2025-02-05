@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_caliana_apps/app/core/shared/widgets/custom_button.dart';
 import 'package:my_caliana_apps/app/core/shared/widgets/custom_text_field.dart';
+import 'package:my_caliana_apps/app/core/utils/confirm_back_dialog.dart';
 import 'package:my_caliana_apps/app/core/utils/space_extension.dart';
 import 'package:my_caliana_apps/app/presentation/pages/check_in_page.dart';
 
@@ -110,7 +111,9 @@ class RegistrationPage extends StatelessWidget {
                         }
                       }),
                       8.verticalSpace,
-                      CustomButton().outlineButton(context, 'Batal', () {}),
+                      CustomButton().outlineButton(context, 'Batal', () {
+                        confirmBackDialog();
+                      }),
                     ],
                   )
                 ],

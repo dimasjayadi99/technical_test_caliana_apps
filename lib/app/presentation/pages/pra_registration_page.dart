@@ -3,6 +3,8 @@ import 'package:my_caliana_apps/app/core/shared/widgets/custom_button.dart';
 import 'package:my_caliana_apps/app/core/shared/widgets/custom_text_field.dart';
 import 'package:my_caliana_apps/app/core/utils/space_extension.dart';
 
+import '../../core/utils/confirm_back_dialog.dart';
+
 class PraRegistrationPage extends StatelessWidget {
   PraRegistrationPage({super.key});
 
@@ -100,7 +102,9 @@ class PraRegistrationPage extends StatelessWidget {
                     32.verticalSpace,
                     CustomButton().fillButton(context, 'Kirim Undangan', () {}),
                     8.verticalSpace,
-                    CustomButton().outlineButton(context, 'Batal', () {}),
+                    CustomButton().outlineButton(context, 'Batal', () {
+                      confirmBackDialog();
+                    }),
                   ],
                 )
               ],
