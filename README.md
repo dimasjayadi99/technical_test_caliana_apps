@@ -1,16 +1,23 @@
-# my_caliana_apps
+# Technical Test App Caliana
+Aplikasi berbasis mobile Flutter untuk kebutuhan technical test.
 
-Technical test flutter apps
+![Frame 2 (1)](https://github.com/user-attachments/assets/86461ac9-5d59-40e0-a566-ced994a6c120)
 
-## Getting Started
+## Instalasi
+1. **Clone repository ini**:  
+   Buka terminal dan jalankan perintah berikut:
+   ```bash
+   git clone <URL_REPOSITORY>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. **Mengunduh semua dependency**
+   ```dependency
+   flutter pub get
+   ```
+3. **Jalankan aplikasi**
+   ```dependency
+   flutter run
+   ```
+   
+## Credit
+- [Github](https://github.com/dimasjayadi99)
+- [Linekdin](https://www.linkedin.com/in/dimasjayadi99/)
