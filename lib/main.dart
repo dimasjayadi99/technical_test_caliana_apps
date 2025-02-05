@@ -5,10 +5,14 @@ import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:my_caliana_apps/app/config/routes/router_config.dart';
 import 'package:my_caliana_apps/app/core/constant/path.dart';
+import 'package:my_caliana_apps/app/core/utils/space_extension.dart';
 import 'package:my_caliana_apps/app/presentation/pages/home_page.dart';
+import 'package:my_caliana_apps/app/presentation/pages/notification_page.dart';
 import 'package:my_caliana_apps/app/presentation/pages/pra_registration_page.dart';
 import 'package:my_caliana_apps/app/presentation/pages/profile_page.dart';
 import 'package:my_caliana_apps/app/presentation/pages/registration_page.dart';
+
+import 'app/core/constant/style.dart';
 
 void main() {
   initializeDateFormatting('id_ID', null);
@@ -55,6 +59,85 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'CalianaLogo',
+          style: TextStyle(color: StyleConstant.primaryColor, fontSize: 20),
+        ),
+        actions: [
+          if (_currentIndex == 0)
+            Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.centerLeft,
+              children: [
+                Positioned(
+                  right: 32,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(100),
+                        bottomLeft: Radius.circular(100),
+                        topRight: Radius.circular(50),
+                        bottomRight: Radius.circular(50),
+                      ),
+                      border: Border.all(color: Colors.grey.shade300, width: 2),
+                    ),
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        maxWidth: 70,
+                      ),
+                      child: const Text(
+                        'Operator MyCaliana',
+                        style: TextStyle(color: Colors.grey),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.grey.shade300,
+                      width: 2,
+                    ),
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(
+                      PathConstant.avatarPath,
+                      width: 42,
+                      height: 42,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          16.horizontalSpace,
+          GestureDetector(
+            onTap: () {
+              Get.to(NotificationPage());
+            },
+            child: Container(
+              margin: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Icon(
+                Icons.notifications_outlined,
+                color: StyleConstant.primaryColor,
+                size: 28,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),

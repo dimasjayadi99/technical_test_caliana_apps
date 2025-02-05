@@ -8,27 +8,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'CalianaLogo',
-          style: TextStyle(color: StyleConstant.primaryColor, fontSize: 20),
-        ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 16),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Icon(
-              Icons.notifications_outlined,
-              color: StyleConstant.primaryColor,
-              size: 28,
-            ),
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
